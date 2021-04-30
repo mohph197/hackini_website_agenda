@@ -1,13 +1,15 @@
+const mainTitle = document.getElementById("bg_title");
 const panels = document.querySelectorAll(".panel");
+const iButtons = document.querySelectorAll(".index_button");
 
 let focus_index = 0;
 let angle = 270;
 const es = panels.length;
 const unit = 360 / es;
-const default_x = 390;
 const width_per = 0.3;
 let x_axis;
 let z_axis;
+let main_fSize;
 let title_fSize;
 let text_fSize;
 
@@ -19,16 +21,15 @@ sync();
 window.addEventListener("resize", () => sync());
 
 function move(dir){
-    if(dir == 1)
-    {
-        angle -= unit;
-        post_i();
-    }
-    else if(dir == -1)
-    {
-        angle += unit;
-        pre_i();
-    }
+    angle -= dir * unit;
+    if(dir == 1) post_i();
+    else if(dir == -1) pre_i();
+    sync();
+}
+
+function goto(pos){
+    angle = 270 - pos*unit;
+    focus_index = pos;
     sync();
 }
 
@@ -60,7 +61,7 @@ function style_objs(){
     {
         if(i === focus_index){
             panels[i].style.backgroundColor = "#28D0F3";
-            panels[i].style.transform = rotate_objs(panels[i])/* + " scale(1)"*/;
+            panels[i].style.transform = rotate_objs(panels[i]);
             panels[i].style.filter = "blur(0px)";
             panels[i].firstElementChild.firstElementChild.style.color = "#2B3240";
             panels[i].firstElementChild.lastElementChild.childNodes.forEach(e => {
@@ -71,27 +72,26 @@ function style_objs(){
         else 
         {
             panels[i].style.backgroundColor = "#2B3240";
-            panels[i].style.transform = rotate_objs(panels[i])/* + " scale(0.9)"*/;
+            panels[i].style.transform = rotate_objs(panels[i]);
             panels[i].style.filter = "blur(5px)";
             panels[i].firstElementChild.firstElementChild.style.color = "#28D0F3";
             panels[i].firstElementChild.lastElementChild.childNodes.forEach(e => {
                 if(e.nodeName == "DIV") e.firstElementChild.style.color = "#28D0F3";
             });
         }
+        iButtons.forEach(e => e.style.backgroundColor = "#2b324080");
+        iButtons[focus_index].style.backgroundColor = "#28D0F3";
+        mainTitle.style.fontSize = main_fSize + "px";
         panels[i].firstElementChild.firstElementChild.style.fontSize = title_fSize + "px";
         panels[i].firstElementChild.lastElementChild.style.fontSize = text_fSize + "px";
     }
     angle %= 360;
 }
 
-function i_value(){
-    if(window.innerWidth * width_per > default_x) return default_x;
-    return window.innerWidth * width_per;
-}
-
 function sync(){
-    x_axis = i_value();
-    z_axis = 20;
+    x_axis = window.innerWidth * width_per;
+    z_axis = 30;
+    main_fSize = panels[es - 1 - focus_index].getBoundingClientRect().width / 10;
     title_fSize = panels[es - 1 - focus_index].getBoundingClientRect().width / 12;
     text_fSize = panels[es - 1 - focus_index].getBoundingClientRect().width / 28;
     style_objs();

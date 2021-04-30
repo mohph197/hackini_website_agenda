@@ -1,16 +1,20 @@
 @font-face{
     font-family: Open_Sans_R;
-    src: url("OpenSans-Regular.ttf");
+    src: url("Open_Sans/OpenSans-Regular.ttf");
 }
 @font-face{
     font-family: Open_Sans_L;
-    src: url("OpenSans-Light.ttf");
+    src: url("Open_Sans/OpenSans-Light.ttf");
 }
 @font-face{
     font-family: Open_Sans_B;
-    src: url("OpenSans-Bold.ttf");
+    src: url("Open_Sans/OpenSans-Bold.ttf");
 }
 @font-face{
     font-family: Open_Sans_SB;
-    src: url("OpenSans-SemiBold.ttf");
+    src: url("Open_Sans/OpenSans-SemiBold.ttf");
+}
+@font-face{
+    font-family: BSD_B;
+    src: url("Big_Shoulders_Display/BigShouldersDisplay-Bold.ttf");
 }
