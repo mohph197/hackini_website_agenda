@@ -1,28 +1,28 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #E4E4E4;;
     cursor: default;
 }
 #agenda{
     position: relative;
-    /* background-color: #E4E4E4; */
     height: 180vw;
     max-height: 720px;
+    width: 100%;
     overflow-x: hidden;
+    margin: 50px 0;
 }
-#agenda_bg{
+#agenda-bg{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #E4E4E4;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* z-index: 100; */
 }
-#bg_title{
+#bg-title{
     position: relative;
     color: #28D0F3;
     padding: 10px;
@@ -32,17 +32,17 @@ body{
     align-items: center;
     z-index: 100;
 }
-#title_border{
+#title-border{
     position: absolute;
     bottom: 0;
     width: 40%;
     border: 2px solid #2B3240;
     transition-duration: .5s;
 }
-#bg_title:hover #title_border{
-    width: 100%;
+#bg-title:hover #title-border{
+    width: 80%;
 }
-#agenda_panels{
+#agenda-panels{
     position: absolute;
     top: 0;
     right: 0;
@@ -54,7 +54,7 @@ body{
     perspective: 200px;
     transform-style: preserve-3d;
 }
-#panels_holder{
+#panels-holder{
     position: relative;
     display: flex;
     justify-content: center;
@@ -104,7 +104,7 @@ body{
 .content > .text > .tile > .details{
     color: white;
 }
-#agenda_buttons{
+#agenda-buttons{
     position: absolute;
     right: 0;
     bottom: 0;
@@ -112,53 +112,181 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
 }
-.index_button{
+.index-button{
     border: none;
     outline: none;
     padding: 0;
     border-radius: 50%;
     min-width: 10px;
     min-height: 10px;
-    margin: 0 3px;
+    margin: 0 5px;
     transition-duration: .5s;
 }
-.index_button:hover{
+.index-button:hover{
     cursor: pointer;
 }
-.n_p_button{
+.n-p-button{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
     border: none;
     outline: none;
-    padding: 10px 0px;
-    border-radius: 10px;
-    width: 100px;
-    font-size: 20px;
-    color: #2B3240;
-    border: 2px solid #2B3240;
     background-color: transparent;
-    text-align: center;
+    margin: 0 20px;
+    width: 75px;
+    height: 75px;
     transition-duration: .5s;
 }
-.n_p_button:hover{
-    color: white;
-    border-color: transparent;
+.segs-con{
+    position: absolute;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    transition-duration: .5s;
+    transform: scale(0.5);
+}
+.border-seg{
+    position: absolute;
+    background-color: #2B3240;
+    border-radius: 50%;
+    transition-duration: .5s;
+}
+.top-seg{
+    top: 0;
+    left: -10px;
+    height: 2px;
+    width: 70px;
+}
+.right-seg{
+    top: -10px;
+    right: 0;
+    width: 2px;
+    height: 70px;
+}
+.bottom-seg{
+    bottom: 0;
+    right: -10px;
+    height: 2px;
+    width: 70px;
+}
+.left-seg{
+    left: 0;
+    bottom: -10px;
+    width: 2px;
+    height: 70px;
+}
+.btn-seg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    background-color: #2B3240;
+    border-radius: 50px;
+    transition-duration: .5s;
+}
+#seg-a{
+    height: 100px;
+    transform-origin: 0 0;
+    transform: translateX(10px);
+}
+#seg-b{
+    height: 122px;
+    transform-origin: right top;
+    transform: translateX(10px) rotate(-37deg);
+}
+#seg-c{
+    height: 100px;
+    transform-origin: left bottom;
+    transform: translateX(85px);
+}
+#next:hover #seg-a{
+    height: 88px;
+    transform: translate(20px, 3px) rotate(-54deg);
+}
+#next:hover #seg-b{
+    height: 100px;
+    transform: translateX(20px) rotate(0deg);
+}
+#next:hover #seg-c{
+    height: 88px;
+    transform: translate(20px, 11px) rotate(54deg);
+}
+#seg-d{
+    height: 100px;
+    transform: translateX(18px);
+}
+#seg-e{
+    height: 57px;
+    transform-origin: right top;
+    transform: translateX(15px) rotate(-90deg);
+}
+#seg-f{
+    position: absolute;
+    width: 55px;
+    height: 52px;
+    border: 5px solid transparent;
+    border-right-color: #2B3240;
+    border-radius: 20px;
+    transform: translateX(18px);
+    top: -5px;
+    transition-duration: .5s;
+}
+#seg-g{
+    height: 57px;
+    transform-origin: right top;
+    transform: translate(15px, 47px) rotate(-90deg);
+}
+#previous:hover #seg-d{
+    transform: translateX(70px);
+}
+#previous:hover #seg-e{
+    height: 86px;
+    transform-origin: left top;
+    transform: translate(73px, -3px) rotate(54deg);
+}
+#previous:hover #seg-f{
+    border-right-color: #E4E4E4;
+    transform-origin: left top;
+    transform: translate(73px, 15px) rotate(144deg);
+    width: 67px;
+    height: 0px;
+    opacity: 0;
+}
+#previous:hover #seg-g{
+    height: 86px;
+    transform: translate(0px, 46px) rotate(-54deg);
+}
+.n-p-button:hover {
     background-color: #28D0F3;
+    border-radius: 20%;
     cursor: pointer;
 }
-#previous{
-    margin-left: 20px;
+/* .n-p-button:hover .segs-con{transform: scale(0.4);} */
+.n-p-button:hover .btn-seg{
+    background-color: #E4E4E4;
+    width: 8px;
 }
-#next{
-    margin-right: 20px;
-}
+.n-p-button:hover .border-seg{background-color: #28D0F3; opacity: 0;}
+.n-p-button:hover .top-seg{left: 0px;}
+.n-p-button:hover .right-seg{top: 0px;}
+.n-p-button:hover .bottom-seg{right: 0px;}
+.n-p-button:hover .left-seg{bottom: 0px;}
 @media (min-width: 1024px){
-    #agenda_buttons{
+    #agenda-buttons{
         top: 0;
     }
-    #panels_index{
+    #panels-index{
         align-self: flex-end;
     }
 }
 @media (max-width: 1024px){
+    #agenda-buttons{
+        height: 100px;
+    }
 }

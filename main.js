@@ -1,6 +1,6 @@
-const mainTitle = document.getElementById("bg_title");
+const mainTitle = document.getElementById("bg-title");
 const panels = document.querySelectorAll(".panel");
-const iButtons = document.querySelectorAll(".index_button");
+const iButtons = document.querySelectorAll(".index-button");
 
 let focus_index = 0;
 let angle = 270;

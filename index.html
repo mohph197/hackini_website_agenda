@@ -10,14 +10,14 @@
   </head>
   <body>
     <div id="agenda">
-      <div id="agenda_bg">
-        <div id="bg_title">
-          <div id="title_border"></div>
+      <div id="agenda-bg">
+        <div id="bg-title">
+          <div id="title-border"></div>
           Schedule of the Event
         </div>
       </div>
-      <div id="agenda_panels">
-        <div id="panels_holder">
+      <div id="agenda-panels">
+        <div id="panels-holder">
           <div class="panel">
             <div class="content">
               <div class="title">General</div>
@@ -138,17 +138,34 @@
           </div>
         </div>
       </div>
-      <div id="agenda_buttons">
-        <button class="n_p_button" id="previous" onclick="move(-1)">
-          Previous
+      <div id="agenda-buttons">
+        <button class="n-p-button" id="previous" onclick="move(-1)">
+          <div class="border-seg top-seg"></div>
+          <div class="border-seg right-seg"></div>
+          <div class="border-seg bottom-seg"></div>
+          <div class="border-seg left-seg"></div>
+          <div class="segs-con">
+            <div id="seg-d" class="btn-seg"></div>
+            <div id="seg-e" class="btn-seg"></div>
+            <div id="seg-f"></div>
+            <div id="seg-g" class="btn-seg"></div>
+          </div>
         </button>
-        <div id="panels_index">
-          <button class="index_button" onclick="goto(0)"></button>
-          <button class="index_button" onclick="goto(1)"></button>
-          <button class="index_button" onclick="goto(2)"></button>
+        <div id="panels-index">
+          <button class="index-button" onclick="goto(0)"></button>
+          <button class="index-button" onclick="goto(1)"></button>
+          <button class="index-button" onclick="goto(2)"></button>
         </div>
-        <button class="n_p_button" id="next" onclick="move(1)">
-          Next
+        <button class="n-p-button" id="next" onclick="move(1)">
+          <div class="border-seg top-seg"></div>
+          <div class="border-seg right-seg"></div>
+          <div class="border-seg bottom-seg"></div>
+          <div class="border-seg left-seg"></div>
+          <div class="segs-con">
+            <div id="seg-a" class="btn-seg"></div>
+            <div id="seg-b" class="btn-seg"></div>
+            <div id="seg-c" class="btn-seg"></div>
+          </div>
         </button>
       </div>
     </div>
